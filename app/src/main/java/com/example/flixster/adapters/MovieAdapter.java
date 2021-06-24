@@ -79,18 +79,19 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
             String imageUrl;
-            String placeholder;
+            int placeholder;
             // if phone in landscape then backdrop image, else poster image
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageUrl = movie.getBackdropPath();
-                // .placeholder part loads when the image isn't available
-                Glide.with(context).load(imageUrl).placeholder(R.drawable.flicks_backdrop_placeholder).into(ivPoster);
+                placeholder = R.drawable.flicks_backdrop_placeholder;
             }
             else {
                 imageUrl = movie.getPosterPath();
-                // .placeholder part loads when the image isn't available
-                Glide.with(context).load(imageUrl).placeholder(R.drawable.flicks_movie_placeholder).into(ivPoster);
+                placeholder = R.drawable.flicks_movie_placeholder;
             }
+            // .placeholder part loads when the image isn't available
+            Glide.with(context).load(imageUrl).placeholder(placeholder).into(ivPoster);
+
         }
 
         @Override
