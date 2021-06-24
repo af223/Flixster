@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterInside;
 import com.example.flixster.MovieDetailsActivity;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
@@ -94,13 +95,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
             // for rounded corners on images
             int radius = 20; // corner radius, higher value = more rounded
-            int margin = 10; // crop margin, set to 0 for corners with no crop
+            int margin = 5; // crop margin, set to 0 for corners with no crop
 
             Glide.with(context)
                     .load(imageUrl) // actual image
                     .placeholder(placeholder) // loads when the image hasn't loaded yet
                     .centerCrop() // scale image to fill the entire ImageView
-                    .transform(new RoundedCornersTransformation(radius, margin))
+                    .transform(new CenterInside(), new RoundedCornersTransformation(radius, margin))
                     .into(ivPoster); // place image loads
 
         }
