@@ -20,11 +20,14 @@ The following **stretch** features are implemented:
 * [ ] Improved the user interface by experimenting with styling and coloring.
 * [x] Apply rounded corners for the poster or background images using [Glide transformations](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library#transformations)
 * [x] Apply the popular [View Binding annotation library](http://guides.codepath.org/android/Reducing-View-Boilerplate-with-ViewBinding) to reduce boilerplate code.
-* [ ] Allow video trailers to be played in full-screen using the YouTubePlayerView from the details screen.
+* [x] Allow video trailers to be played in full-screen using the YouTubePlayerView from the details screen.
 
 The following **additional** features are implemented:
 
 * [ ] List anything else that you can get done to improve the app functionality!
+  * [x] VideoId stored on Movie so it's only fetched once
+  * [x] Display "play" overlay image over backdrop on details activity for playing trailer
+  * [x] Same tap-to-play functionality from landscape view
 
 ## Video Walkthrough
 
