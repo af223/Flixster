@@ -3,6 +3,7 @@ package com.example.flixster;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -58,6 +59,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         // set title and overview from movie
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+        tvOverview.setMovementMethod(new ScrollingMovementMethod());
 
         // convert vote average (0-10) to scale of 0-5
         float voteAverage = movie.getVoteAverage().floatValue();

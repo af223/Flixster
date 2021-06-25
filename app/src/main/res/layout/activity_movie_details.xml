@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/film_background_long"
     tools:context=".MovieDetailsActivity">
 
     <TextView
@@ -32,7 +33,11 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:paddingHorizontal="5dp"
-        android:text="TextView" />
+        android:background="#E6CF7B11"
+        android:backgroundTint="#F2F2F2"
+        android:scrollbars = "vertical"
+        android:text="TextView"
+        android:textColor="#000000" />
 
     <RatingBar
         android:id="@+id/rbVoteAverage"
@@ -45,6 +50,8 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="0dp"
         android:numStars="5"
+        android:progressBackgroundTint="#423939"
+        android:progressTint="#F8C017"
         android:stepSize="0.5"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="76dp" />
@@ -58,7 +65,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="70dp"
         android:onClick="onTrailerClick"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -66,7 +73,7 @@
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/tvBackdrop"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:onClick="onTrailerClick"
