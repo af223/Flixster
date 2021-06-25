@@ -29,6 +29,7 @@ The following **additional** features are implemented:
   * [x] Display "play" overlay image over backdrop on details activity for playing trailer
   * [x] Same tap-to-play functionality from landscape view
   * [x] Text scrolls if description is too long
+  * [x] Grouped movie backdrop and play button for trailer together in Frame Layout
 
 ## Video Walkthrough
 
