@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="0dp" >
+
+    <ImageButton
+        android:id="@+id/tvBackdrop"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:adjustViewBounds="true"
+        android:onClick="onTrailerClick"
+        android:scaleType="centerInside"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="clip_horizontal|center"
+        android:onClick="onTrailerClick"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+</FrameLayout>

@@ -49,7 +49,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvTitle = binding.tvTitle;
         tvOverview = binding.tvOverview;
         rbVoteAverage = binding.rbVoteAverage;
-        tvBackdrop = binding.tvBackdrop;
+        tvBackdrop = view.findViewById(R.id.tvBackdrop);
 
         // unwrap movie passed in from intent, using simple name as key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
