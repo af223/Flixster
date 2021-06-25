@@ -74,15 +74,16 @@ public class Movie {
     }
 
     public String getId() {
-        if (id == null) return "";
-        else return ""+id;
+        return ""+id;
     }
 
+    // fast retrieval of key without needing to call API
     public String getKey() {
         return key;
     }
 
     // get key to use for youtube request
+    // only called once when creating a Movie object to improve speed so API calls are made only once per movie
     public String getKey(int movie_id) {
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(String.format(TRAILER, ""+movie_id), new JsonHttpResponseHandler() {
@@ -93,7 +94,8 @@ public class Movie {
                 try {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results: " + results.toString());
-                    // getting the key
+                    // getting the key. Possible that some movies don't have an associated YouTube trailer
+                    // so safety check here
                     if (results.length() > 0) {
                         key = results.getJSONObject(0).getString("key");
                         Log.i(TAG, "Key: " + key);
@@ -109,6 +111,7 @@ public class Movie {
             }
         });
 
+        // possible that some movies don't have associated key for trailer, in which case key is empty
         if (key == null) return "";
         else return key;
     }

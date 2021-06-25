@@ -33,15 +33,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+
         // with ViewBinding:
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
-
         View view = binding.getRoot();
         setContentView(view);
 
         // defined recycler view
-        //RecyclerView rvMovies = findViewById(R.id.rvMovies); // view boilerplate
         RecyclerView rvMovies = binding.rvMovies;
 
         movies = new ArrayList<>();
@@ -55,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         // set a layout manager on recycler view so that recycler view knows how to layout all the views on screen
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
+        // retrieving data about movies from API call and populating movies array with Movie objects
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
             @Override
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results: " + results.toString());
-                    // listing the movies, need 'movies' since it's already given to movieAdapter
+                    // unpacking HTTP response into Movies in movies, need addAll since movies already given to movieAdapter
                     movies.addAll(Movie.fromJsonArray(results));
                     // whenever data changes, need to let adapter know
                     movieAdapter.notifyDataSetChanged();

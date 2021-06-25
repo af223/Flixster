@@ -15,24 +15,21 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_trailer);
 
-        // get the id passed in from intent, using "key"" as key
+        // get the id passed in from intent from MovieDetailsActivity
+        // this id is used as part of the link to retrieve the correct trailer for the movie
         String videoId = getIntent().getStringExtra("moviekey");
         Log.d("hello", videoId);
-
-//        // temporary test video id -- TODO replace with movie trailer video id
-//        final String videoId = "tKodtNFpzBA";
 
         // resolve the player view from the layout
         YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.player);
 
-        // initialize with API key stored in secrets.xml
-        //playerView.initialize(getString(R.string.youtube_api_key), new YouTubePlayer.OnInitializedListener() {
+        // initialize with API key
         playerView.initialize("AIzaSyDqzyj8x9KWkVH1gDseqzxEh2njREfDB9s", new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider,
                                                 YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("MovieTrailerActivity", videoId);
-                // do any work here to cue video, play video, etc.
+                // cue video using video Id
                 youTubePlayer.cueVideo(videoId);
             }
 

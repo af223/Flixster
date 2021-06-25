@@ -18,6 +18,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="0dp"
         android:onClick="onTrailerClick"
+        android:paddingHorizontal="0dp"
+        android:paddingVertical="0dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageButton
@@ -27,6 +29,8 @@
         android:layout_centerInParent="true"
         android:layout_gravity="clip_horizontal|center"
         android:onClick="onTrailerClick"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
         app:srcCompat="@android:drawable/ic_media_play" />
 
 </FrameLayout>

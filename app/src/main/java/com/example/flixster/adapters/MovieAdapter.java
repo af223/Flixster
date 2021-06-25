@@ -46,14 +46,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         return new ViewHolder(movieView);
     }
 
-    // populate data into item(view) through holder. Take data at that position into view at holder
+    // populate data into ViewHolder. Take data at that position into view at holder
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         Log.d("MovieAdapter", "onBindViewHolder" + position);
         // get the movie at the position
         Movie movie = movies.get(position);
 
-        // bind movie data into viewholder
+        // bind movie data into ViewHolder
         holder.bind(movie);
     }
 
@@ -78,11 +78,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             itemView.setOnClickListener(this);
         }
 
+        // bind movie data into ViewHolder
         public void bind(Movie movie) {
-            tvTitle.setText(movie.getTitle());
-            tvOverview.setText(movie.getOverview());
             String imageUrl;
             int placeholder;
+
+            tvTitle.setText(movie.getTitle());
+            tvOverview.setText(movie.getOverview());
+
             // if phone in landscape then backdrop image, else poster image
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageUrl = movie.getBackdropPath();
@@ -101,11 +104,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     .load(imageUrl) // actual image
                     .placeholder(placeholder) // loads when the image hasn't loaded yet
                     .centerCrop() // scale image to fill the entire ImageView
-                    .transform(new CenterInside(), new RoundedCornersTransformation(radius, margin))
+                    .transform(new CenterInside(), new RoundedCornersTransformation(radius, margin)) // rounded corners
                     .into(ivPoster); // place image loads
 
         }
 
+        // When the ViewHolder is clicked, create intent to go to MovieDetailsActivity page
         @Override
         public void onClick(View v) {
             // get item position
