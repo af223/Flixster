@@ -28,6 +28,7 @@ The following **additional** features are implemented:
   * [x] VideoId stored on Movie so it's only fetched once
   * [x] Display "play" overlay image over backdrop on details activity for playing trailer
   * [x] Same tap-to-play functionality from landscape view
+  * [x] Text scrolls if description is too long
 
 ## Video Walkthrough
 
