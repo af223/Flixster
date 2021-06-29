@@ -24,7 +24,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.player);
 
         // initialize with API key
-        playerView.initialize("AIzaSyDqzyj8x9KWkVH1gDseqzxEh2njREfDB9s", new YouTubePlayer.OnInitializedListener() {
+        playerView.initialize(getString(R.string.youtube_api_key), new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider,
                                                 YouTubePlayer youTubePlayer, boolean b) {
